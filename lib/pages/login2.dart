@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_uidemo/ui/helper/variables.dart';
+import 'package:progress_state_button/progress_button.dart';
 
 class Login2Page extends StatefulWidget {
   @override
@@ -12,6 +14,58 @@ class _Login2PageState extends State<Login2Page> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _email;
   String _password;
+
+  ButtonState stateOnlyText = ButtonState.idle;
+  Widget buildCustomButton() {
+    var progressTextButton = ProgressButton(
+      stateWidgets: {
+        ButtonState.idle: Text(
+          "OTURUM AÇ",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18.0),
+        ),
+        ButtonState.loading: Text(
+          "Oturum Açılıyor",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18.0),
+        ),
+        ButtonState.fail: Text(
+          "Hata",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18.0),
+        ),
+        ButtonState.success: Text(
+          "Başarılı",
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 18.0),
+        )
+      },
+      stateColors: {
+        ButtonState.idle: Variables.primaryColor,
+        ButtonState.loading: Variables.secondaryColor,
+        ButtonState.fail: Colors.red.shade300,
+        ButtonState.success: Colors.green.shade400,
+      },
+      onPressed: onPressedCustomButton,
+      state: stateOnlyText,
+      padding: EdgeInsets.all(8.0),
+    );
+    return progressTextButton;
+  }
+  void onPressedCustomButton() {
+    setState(() {
+      switch (stateOnlyText) {
+        case ButtonState.idle:
+          stateOnlyText = ButtonState.loading;
+          break;
+        case ButtonState.loading:
+          stateOnlyText = ButtonState.fail;
+          break;
+        case ButtonState.success:
+          stateOnlyText = ButtonState.idle;
+          break;
+        case ButtonState.fail:
+          stateOnlyText = ButtonState.success;
+          break;
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -45,7 +99,7 @@ class _Login2PageState extends State<Login2Page> {
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.35,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.deepPurple[300],
+                    color: Variables.primaryColor.withOpacity(0.3),//Colors.deepPurple[300],
                   ),
                   clipper: RoundedClipper(60),
                 ),
@@ -53,7 +107,7 @@ class _Login2PageState extends State<Login2Page> {
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.33,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.deepPurpleAccent,
+                    color: Variables.secondaryColor,//Colors.deepPurpleAccent,
                   ),
                   clipper: RoundedClipper(50),
                 ),
@@ -66,14 +120,16 @@ class _Login2PageState extends State<Login2Page> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               (MediaQuery.of(context).size.height * 0.30) / 2),
-                          color: Colors.deepPurple[300].withOpacity(0.3)),
+                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                      ),
                       child: Center(
                         child: Container(
                           height: 50,
                           width: 50,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.deepPurpleAccent),
+                              color: Variables.secondaryColor//Colors.deepPurpleAccent
+                          ),
                         ),
                       ),
                     )),
@@ -86,14 +142,16 @@ class _Login2PageState extends State<Login2Page> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               (MediaQuery.of(context).size.height * 0.36) / 2),
-                          color: Colors.deepPurple[300].withOpacity(0.3)),
+                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                      ),
                       child: Center(
                         child: Container(
                           height: 50,
                           width: 50,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.deepPurpleAccent),
+                              color: Variables.secondaryColor//Colors.deepPurpleAccent
+                          ),
                         ),
                       ),
                     )),
@@ -106,7 +164,8 @@ class _Login2PageState extends State<Login2Page> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
                               (MediaQuery.of(context).size.height * 0.15) / 2),
-                          color: Colors.deepPurple[300].withOpacity(0.3)),
+                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                      ),
                     )),
                 Container(
                   margin: EdgeInsets.only(
@@ -196,27 +255,31 @@ class _Login2PageState extends State<Login2Page> {
                     SizedBox(
                       height: 15,
                     ),
-                    Container(
-                      child: GestureDetector(
-                          onTap: () {
-                            print("pressed");
-                            _validateInputs();
-                          },
-                          child: Container(
-                            height: MediaQuery.of(context).size.height * 0.065,
-                            decoration: BoxDecoration(
-                                color: Colors.deepPurpleAccent,
-                                borderRadius:
-                                BorderRadius.all(Radius.circular(25))),
-                            child: Center(
-                              child: Text(
-                                "OTURUM AÇ",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 16),
-                              ),
-                            ),
-                          )),
-                    ),
+                    buildCustomButton(),
+//                    SizedBox(
+//                      height: 15,
+//                    ),
+//                    Container(
+//                      child: GestureDetector(
+//                          onTap: () {
+//                            print("pressed");
+//                            _validateInputs();
+//                          },
+//                          child: Container(
+//                            height: MediaQuery.of(context).size.height * 0.065,
+//                            decoration: BoxDecoration(
+//                                color: Variables.primaryColor,//Colors.deepPurpleAccent,
+//                                borderRadius:
+//                                BorderRadius.all(Radius.circular(25))),
+//                            child: Center(
+//                              child: Text(
+//                                "OTURUM AÇ",
+//                                style: TextStyle(
+//                                    color: Colors.white, fontSize: 16),
+//                              ),
+//                            ),
+//                          )),
+//                    ),
                     SizedBox(
                       height: 15,
                     ),
@@ -245,7 +308,7 @@ class _Login2PageState extends State<Login2Page> {
                                 Text(
                                   "Kayıt Ol",
                                   style: TextStyle(
-                                      color: Colors.deepPurpleAccent,
+                                      color: Variables.secondaryColor,//Colors.deepPurpleAccent,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16),
                                 ),

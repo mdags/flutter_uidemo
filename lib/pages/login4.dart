@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_uidemo/ui/helper/variables.dart';
 
 class Login4Page extends StatefulWidget {
   @override
@@ -97,9 +98,7 @@ class _Login4PageState extends State<Login4Page> {
                         width: double.infinity,
                         child: Container(
                           child: RaisedButton(
-                            color: Theme
-                                .of(context)
-                                .primaryColor,
+                            color: Variables.primaryColor,
                             splashColor: Colors.white,
                             shape: RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(50.0)),
@@ -151,9 +150,7 @@ class _Login4PageState extends State<Login4Page> {
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(ScreenUtil().setWidth(150)),
                 bottomRight: Radius.circular(ScreenUtil().setWidth(150))),
-            color: Theme
-                .of(context)
-                .primaryColor),
+            color: Variables.primaryColor),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -178,7 +175,7 @@ class _Login4PageState extends State<Login4Page> {
               child: Container(
                   padding: const EdgeInsets.only(top: 15.0),
                   child: Text(
-                      'KAPLANLAR BCF MOBİL',
+                      'FİRMA ADI',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: 'Montserrat',

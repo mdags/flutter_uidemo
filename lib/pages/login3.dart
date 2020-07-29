@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uidemo/ui/helper/variables.dart';
 
 class Login3Page extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class _Login3PageState extends State<Login3Page> {
   final emailReg = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   final util = Util();
   bool isTermsAccepted = false;
-  final secondary = Color(0xffffbb06);
+  final secondary = Variables.secondaryColor;//Color(0xffffbb06);
   final AssetImage logo = new AssetImage('images/login3_logo.png');
 
   @override
@@ -27,7 +28,7 @@ class _Login3PageState extends State<Login3Page> {
             gradient: LinearGradient(
                 colors: [
                   secondary,
-                  Theme.of(context).primaryColor
+                  Variables.primaryColor
                 ]
             )
         ),
@@ -38,7 +39,7 @@ class _Login3PageState extends State<Login3Page> {
                 height: 80,
                 child: Center()
             ),
-            Text("ADNAN A.Ş.".toUpperCase(), style: TextStyle(
+            Text("FİRMA ADI".toUpperCase(), style: TextStyle(
                 color: Colors.white70,
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold

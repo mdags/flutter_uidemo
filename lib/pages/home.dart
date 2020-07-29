@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uidemo/pages/settings.dart';
+import 'package:flutter_uidemo/ui/helper/hexcolor.dart';
+import 'package:flutter_uidemo/ui/helper/variables.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -6,11 +10,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> getSettings() async {
+    final prefs = await SharedPreferences.getInstance();
+    Variables.primaryColor = HexColor.fromHex(prefs.get("primary")) ?? Colors.blueAccent;
+    Variables.secondaryColor = HexColor.fromHex(prefs.get("secondary")) ?? Colors.blue;
+    Variables.splashUrl = prefs.get("splash") ?? "";
+    Variables.logoUrl = prefs.get("logo") ?? "";
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      getSettings();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter Demo Örnekleri'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: (){
+              Navigator.of(context).push(
+                  new MaterialPageRoute(
+                      builder: (context) => SettingsPage()
+                  ));
+            },
+          )
+        ],
       ),
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) =>
@@ -35,7 +67,7 @@ final List<Entry> data = <Entry>[
     <Entry>[
       Entry('Login 1', '/login1', Icon(Icons.navigate_next, color: Colors.red,)),
       Entry('Login 2', '/login2', Icon(Icons.navigate_next, color: Colors.red,)),
-      Entry('Login 3', '/login3', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Login 3', '/login3onboard', Icon(Icons.navigate_next, color: Colors.red,)),
       Entry('Login 4', '/login4', Icon(Icons.navigate_next, color: Colors.red,)),
     ],
   ),
@@ -50,9 +82,17 @@ final List<Entry> data = <Entry>[
   Entry('Listeler', ' ', Icon(Icons.list),
     <Entry>[
       Entry('Liste 1', '/list1', Icon(Icons.navigate_next, color: Colors.red,)),
-      Entry('Liste 2', '/list2', Icon(Icons.navigate_next, color: Colors.red,)),
-      Entry('Liste 3', '/list3', Icon(Icons.navigate_next, color: Colors.red,)),
-      Entry('Liste 4', '/list4', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Liste 2', '/list4', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Yatay Liste', '/list2', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Data Table', '/list3', Icon(Icons.navigate_next, color: Colors.red,)),
+    ],
+  ),
+  Entry('Detay Ekranlar', ' ', Icon(Icons.format_color_text),
+    <Entry>[
+      Entry('Detay 1', '/detay1', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Detay 2', '/detay2', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Detay 3', '/detay3', Icon(Icons.navigate_next, color: Colors.red,)),
+      //Entry('Detay 4', '/detay4', Icon(Icons.navigate_next, color: Colors.red,)),
     ],
   ),
 ];

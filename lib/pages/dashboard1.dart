@@ -25,7 +25,7 @@ class _Dashboard1PageState extends State<Dashboard1Page> {
           //title: Text('MOBİL MUHASEBE'),
           flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
-              title: Text('MOBİL MUHASEBE'),
+              title: Text('FİRMA İSMİ'),
               background: Image.asset('images/dashboard1_sliver.png',
                 fit: BoxFit.cover,
               )),

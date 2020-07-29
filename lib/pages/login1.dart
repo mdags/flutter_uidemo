@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uidemo/ui/helper/variables.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 class Login1Page extends StatefulWidget {
   @override
@@ -8,23 +10,48 @@ class Login1Page extends StatefulWidget {
 class _Login1PageState extends State<Login1Page> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Login 1'),
-      ),
-      resizeToAvoidBottomPadding: false,
-      backgroundColor: Colors.white,
-      body: loginWidget(),
+    return SplashScreen(
+        seconds: 5,
+        navigateAfterSeconds: AfterSplash(),
+        title: new Text('FİRMA ADI',
+          style: new TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0,
+              color: Colors.white
+          ),),
+        image: new Image.asset('images/login1_logo.png'),
+        backgroundColor: Colors.white,
+        imageBackground: AssetImage('images/background.png'),
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 64.0,
+        //onClick: () => print("Flutter Egypt"),
+        loaderColor: Variables.primaryColor
     );
   }
+}
 
-  final Color backgroundColor1 = Color(0xFF444152);
-  final Color backgroundColor2 = Color(0xFF6f6c7d);
+class AfterSplash extends StatelessWidget {
+  final Color backgroundColor1 = Variables.primaryColor;//Color(0xFF444152);
+  final Color backgroundColor2 = Variables.secondaryColor;//Color(0xFF6f6c7d);
   final Color highlightColor = Color(0xFF0067A4);
   final Color foregroundColor = Colors.white;
   final AssetImage logo = new AssetImage("images/login1_logo.png");
 
-  Widget loginWidget() {
+  void login() async {
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: new AppBar(
+          title: new Text("Login 1"),
+      ),
+      body: loginWidget(context),
+    );
+  }
+
+  Widget loginWidget(context) {
     return Container(
       decoration: new BoxDecoration(
         gradient: new LinearGradient(
@@ -61,7 +88,7 @@ class _Login1PageState extends State<Login1Page> {
                   new Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: new Text(
-                      "MOBİL MUHASEBE",
+                      "FİRMA ADI",
                       style: TextStyle(
                           color: this.foregroundColor, fontSize: 20),
                     ),
@@ -246,9 +273,5 @@ class _Login1PageState extends State<Login1Page> {
         ],
       ),
     );
-  }
-
-  void login() async {
-
   }
 }
