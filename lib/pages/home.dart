@@ -79,6 +79,14 @@ final List<Entry> data = <Entry>[
       Entry('Dashboard 4', '/dashboard4', Icon(Icons.navigate_next, color: Colors.red,)),
     ],
   ),
+  Entry('Navigation', ' ', Icon(Icons.menu),
+    <Entry>[
+      Entry('Alt Nav 1', '/altnav1', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Alt Nav 2', '/altnav2', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Yan Nav 1', '/yannav1', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Yan Nav 2', '/yannav2', Icon(Icons.navigate_next, color: Colors.red,)),
+    ],
+  ),
   Entry('Listeler', ' ', Icon(Icons.list),
     <Entry>[
       Entry('Liste 1', '/list1', Icon(Icons.navigate_next, color: Colors.red,)),

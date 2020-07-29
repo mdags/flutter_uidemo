@@ -39,6 +39,7 @@ dependencies:
   splashscreen: ^1.2.0
   progress_state_button: ^1.0.1
   fancy_on_boarding: ^1.6.0
+  fancy_bottom_navigation: ^0.3.2
 
 dev_dependencies:
   flutter_test:

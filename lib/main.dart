@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uidemo/pages/altnav1.dart';
+import 'package:flutter_uidemo/pages/altnav2.dart';
 import 'package:flutter_uidemo/pages/dashboard1.dart';
 import 'package:flutter_uidemo/pages/dashboard2.dart';
 import 'package:flutter_uidemo/pages/dashboard3.dart';
@@ -42,6 +44,8 @@ class MyApp extends StatelessWidget {
         '/dashboard2': (context) => Dashboard2Page(),
         '/dashboard3': (context) => Dashboard3Page(),
         '/dashboard4': (context) => Dashboard4Page(),
+        '/altnav1': (context) => AltNav1Page(),
+        '/altnav2': (context) => AltNav2Page(),
         '/list1': (context) => List1Page(),
         '/list2': (context) => List2Page(),
         '/list3': (context) => List3Page(),
