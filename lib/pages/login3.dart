@@ -13,7 +13,7 @@ class _Login3PageState extends State<Login3Page> {
   final util = Util();
   bool isTermsAccepted = false;
   final secondary = Variables.secondaryColor;//Color(0xffffbb06);
-  final AssetImage logo = new AssetImage('images/login3_logo.png');
+  final AssetImage logo = new AssetImage('images/login1_logo.png');
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +47,12 @@ class _Login3PageState extends State<Login3Page> {
             Container(
               height: 128.0,
               width: 128.0,
-              child: new CircleAvatar(
+              child: CircleAvatar(
                   backgroundColor: Colors.white,
                   foregroundColor: secondary,
                   radius: 100.0,
-                  child: new Image(image: this.logo, width: 145.0, height: 90.0,)
+                  child: Variables.logoUrl==""? Image(image: this.logo, width: 145.0, height: 90.0,):
+                      Image.network(Variables.logoUrl, width: 145.0, height: 90.0,),
               ),
             ),
             SizedBox(height: 40.0),

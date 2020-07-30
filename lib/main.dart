@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_uidemo/pages/altnav1.dart';
 import 'package:flutter_uidemo/pages/altnav2.dart';
+import 'package:flutter_uidemo/pages/altnav3.dart';
 import 'package:flutter_uidemo/pages/dashboard1.dart';
 import 'package:flutter_uidemo/pages/dashboard2.dart';
 import 'package:flutter_uidemo/pages/dashboard3.dart';
@@ -18,6 +19,8 @@ import 'package:flutter_uidemo/pages/login2.dart';
 import 'package:flutter_uidemo/pages/login3.dart';
 import 'package:flutter_uidemo/pages/login3onboard.dart';
 import 'package:flutter_uidemo/pages/login4.dart';
+import 'package:flutter_uidemo/pages/yannav1.dart';
+import 'package:flutter_uidemo/pages/yannav2.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,6 +49,9 @@ class MyApp extends StatelessWidget {
         '/dashboard4': (context) => Dashboard4Page(),
         '/altnav1': (context) => AltNav1Page(),
         '/altnav2': (context) => AltNav2Page(),
+        '/altnav3': (context) => AltNav3Page(),
+        '/yannav1': (context) => YanNav1Page(),
+        '/yannav2': (context) => YanNav2Page(),
         '/list1': (context) => List1Page(),
         '/list2': (context) => List2Page(),
         '/list3': (context) => List3Page(),

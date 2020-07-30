@@ -83,6 +83,7 @@ final List<Entry> data = <Entry>[
     <Entry>[
       Entry('Alt Nav 1', '/altnav1', Icon(Icons.navigate_next, color: Colors.red,)),
       Entry('Alt Nav 2', '/altnav2', Icon(Icons.navigate_next, color: Colors.red,)),
+      Entry('Alt Nav 3', '/altnav3', Icon(Icons.navigate_next, color: Colors.red,)),
       Entry('Yan Nav 1', '/yannav1', Icon(Icons.navigate_next, color: Colors.red,)),
       Entry('Yan Nav 2', '/yannav2', Icon(Icons.navigate_next, color: Colors.red,)),
     ],

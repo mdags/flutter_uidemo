@@ -91,23 +91,42 @@ class _Login2PageState extends State<Login2Page> {
       body: Column(
         children: <Widget>[
           Container(
-            height: MediaQuery.of(context).size.height * 0.35,
-            width: MediaQuery.of(context).size.width,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height * 0.35,
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
             child: Stack(
               children: <Widget>[
                 ClipPath(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    width: MediaQuery.of(context).size.width,
-                    color: Variables.primaryColor.withOpacity(0.3),//Colors.deepPurple[300],
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.35,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    color: Variables.primaryColor.withOpacity(
+                        0.3), //Colors.deepPurple[300],
                   ),
                   clipper: RoundedClipper(60),
                 ),
                 ClipPath(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.33,
-                    width: MediaQuery.of(context).size.width,
-                    color: Variables.secondaryColor,//Colors.deepPurpleAccent,
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.33,
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width,
+                    color: Variables.secondaryColor, //Colors.deepPurpleAccent,
                   ),
                   clipper: RoundedClipper(50),
                 ),
@@ -115,12 +134,22 @@ class _Login2PageState extends State<Login2Page> {
                     top: -110,
                     left: -110,
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.30,
-                      width: MediaQuery.of(context).size.height * 0.30,
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.30,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.30,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
-                              (MediaQuery.of(context).size.height * 0.30) / 2),
-                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                              (MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.30) / 2),
+                          color: Variables.primaryColor.withOpacity(
+                              0.2) //Colors.deepPurple[300].withOpacity(0.3)
                       ),
                       child: Center(
                         child: Container(
@@ -128,7 +157,8 @@ class _Login2PageState extends State<Login2Page> {
                           width: 50,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Variables.secondaryColor//Colors.deepPurpleAccent
+                              color: Variables
+                                  .secondaryColor //Colors.deepPurpleAccent
                           ),
                         ),
                       ),
@@ -137,12 +167,22 @@ class _Login2PageState extends State<Login2Page> {
                     top: -100,
                     left: 100,
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.36,
-                      width: MediaQuery.of(context).size.height * 0.36,
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.36,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.36,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
-                              (MediaQuery.of(context).size.height * 0.36) / 2),
-                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                              (MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.36) / 2),
+                          color: Variables.primaryColor.withOpacity(
+                              0.2) //Colors.deepPurple[300].withOpacity(0.3)
                       ),
                       child: Center(
                         child: Container(
@@ -150,7 +190,8 @@ class _Login2PageState extends State<Login2Page> {
                           width: 50,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Variables.secondaryColor//Colors.deepPurpleAccent
+                              color: Variables
+                                  .secondaryColor //Colors.deepPurpleAccent
                           ),
                         ),
                       ),
@@ -159,27 +200,62 @@ class _Login2PageState extends State<Login2Page> {
                     top: -50,
                     left: 60,
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.15,
-                      width: MediaQuery.of(context).size.height * 0.15,
+                      height: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.15,
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.15,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(
-                              (MediaQuery.of(context).size.height * 0.15) / 2),
-                          color: Variables.primaryColor.withOpacity(0.2)//Colors.deepPurple[300].withOpacity(0.3)
+                              (MediaQuery
+                                  .of(context)
+                                  .size
+                                  .height * 0.15) / 2),
+                          color: Variables.primaryColor.withOpacity(
+                              0.2) //Colors.deepPurple[300].withOpacity(0.3)
                       ),
                     )),
                 Container(
                   margin: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.15 - 50),
-                  height: MediaQuery.of(context).size.height * 0.33,
-                  width: MediaQuery.of(context).size.width,
+                      top: MediaQuery
+                          .of(context)
+                          .size
+                          .height * 0.15 - 50),
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 0.33,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   child: Column(
                     children: <Widget>[
+                      Variables.logoUrl == "" ?
                       Image.asset(
-                        "images/login2_logo.png",
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        width: MediaQuery.of(context).size.height * 0.15,
+                        "images/login1_logo.png",
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.15,
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.15,
                         fit: BoxFit.cover,
-                      ),
+                      ) : Image.network(Variables.logoUrl,
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.15,
+                        width: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.15,
+                        fit: BoxFit.cover,),
                       SizedBox(
                         height: 10,
                       ),
@@ -197,8 +273,14 @@ class _Login2PageState extends State<Login2Page> {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.40,
-            width: MediaQuery.of(context).size.width,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height * 0.40,
+            width: MediaQuery
+                .of(context)
+                .size
+                .width,
             child: Container(
               margin: EdgeInsets.fromLTRB(20, 12, 20, 10),
               child: Form(
@@ -218,7 +300,10 @@ class _Login2PageState extends State<Login2Page> {
                         labelText: "Kullanıcı Adı",
                         contentPadding: new EdgeInsets.symmetric(
                             vertical:
-                            MediaQuery.of(context).size.height * 0.022,
+                            MediaQuery
+                                .of(context)
+                                .size
+                                .height * 0.022,
                             horizontal: 15.0),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -245,7 +330,10 @@ class _Login2PageState extends State<Login2Page> {
                         labelText: "Şifre",
                         contentPadding: new EdgeInsets.symmetric(
                             vertical:
-                            MediaQuery.of(context).size.height * 0.022,
+                            MediaQuery
+                                .of(context)
+                                .size
+                                .height * 0.022,
                             horizontal: 15.0),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(25)),
@@ -285,11 +373,13 @@ class _Login2PageState extends State<Login2Page> {
                     ),
                     Container(
                         margin: EdgeInsets.only(top: 10, bottom: 15),
-                        height: MediaQuery.of(context).size.height * 0.05,
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 0.05,
                         child: GestureDetector(
                           onTap: () {
                             print("signup");
-
                           },
                           child: Center(
                             child: Row(
@@ -308,7 +398,8 @@ class _Login2PageState extends State<Login2Page> {
                                 Text(
                                   "Kayıt Ol",
                                   style: TextStyle(
-                                      color: Variables.secondaryColor,//Colors.deepPurpleAccent,
+                                      color: Variables.secondaryColor,
+                                      //Colors.deepPurpleAccent,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16),
                                 ),

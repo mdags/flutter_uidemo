@@ -164,7 +164,9 @@ class _Login4PageState extends State<Login4Page> {
                     foregroundColor: Colors.white,
                     radius: 100.0,
                     child: Image(
-                      image: AssetImage('images/login4_logo.png'),
+                      image: Variables.logoUrl == "" ? AssetImage(
+                          'images/login1_logo.png') : NetworkImage(
+                          Variables.logoUrl),
                       width: 122.0,
                       height: 122.0,
                     )

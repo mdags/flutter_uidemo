@@ -13,16 +13,20 @@ class _Login1PageState extends State<Login1Page> {
     return SplashScreen(
         seconds: 5,
         navigateAfterSeconds: AfterSplash(),
-        title: new Text('FİRMA ADI',
-          style: new TextStyle(
+        title: Text('FİRMA ADI',
+          style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
               color: Colors.white
-          ),),
-        image: new Image.asset('images/login1_logo.png'),
+          ),
+        ),
+        image: Variables.logoUrl == ""
+            ? Image.asset('images/login1_logo.png')
+            : Image.network(Variables.logoUrl),
         backgroundColor: Colors.white,
-        imageBackground: AssetImage('images/background.png'),
-        styleTextUnderTheLoader: new TextStyle(),
+        imageBackground: Variables.splashUrl == "" ? AssetImage(
+            'images/background.png') : NetworkImage(Variables.splashUrl),
+        styleTextUnderTheLoader: TextStyle(),
         photoSize: 64.0,
         //onClick: () => print("Flutter Egypt"),
         loaderColor: Variables.primaryColor
@@ -31,11 +35,12 @@ class _Login1PageState extends State<Login1Page> {
 }
 
 class AfterSplash extends StatelessWidget {
-  final Color backgroundColor1 = Variables.primaryColor;//Color(0xFF444152);
-  final Color backgroundColor2 = Variables.secondaryColor;//Color(0xFF6f6c7d);
+  final Color backgroundColor1 = Variables.primaryColor; //Color(0xFF444152);
+  final Color backgroundColor2 = Variables.secondaryColor; //Color(0xFF6f6c7d);
   final Color highlightColor = Color(0xFF0067A4);
   final Color foregroundColor = Colors.white;
   final AssetImage logo = new AssetImage("images/login1_logo.png");
+  final NetworkImage logo1 = new NetworkImage(Variables.logoUrl);
 
   void login() async {
 
@@ -45,7 +50,7 @@ class AfterSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-          title: new Text("Login 1"),
+        title: new Text("Login 1"),
       ),
       body: loginWidget(context),
     );
@@ -82,7 +87,9 @@ class AfterSplash extends StatelessWidget {
                         foregroundColor: this.foregroundColor,
                         radius: 100.0,
                         child: new Image(
-                          image: this.logo, width: 90.0, height: 110.0,)
+                          image: Variables.logoUrl==""? this.logo:NetworkImage(Variables.logoUrl),
+                          width: 90.0,
+                          height: 110.0,)
                     ),
                   ),
                   new Padding(

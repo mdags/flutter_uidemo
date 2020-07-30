@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter_uidemo/ui/helper/variables.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Dashboard4Page extends StatefulWidget {
@@ -215,7 +216,9 @@ class _Dashboard4PageState extends State<Dashboard4Page> {
       padding: EdgeInsets.all(0),
       icon: CircleAvatar(
         backgroundColor: Colors.grey.shade300,
-        child: CircleAvatar(radius: 16, backgroundImage: AssetImage('images/login4_logo.png')),
+        child: CircleAvatar(radius: 16,
+            backgroundImage: Variables.logoUrl == "" ? AssetImage(
+                'images/login1_logo.png') : NetworkImage(Variables.logoUrl)),
       ),
       onPressed: () {},
     );
